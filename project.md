@@ -1,0 +1,1 @@
+the website needs to be created in the doc directory. it is for a company called clays fresh start cleaning company llc. focus on dark green and teal colors. i want it to have a clean aestetic. like if apple made a cleaning company. focus on a prefessuonal design to sell the service.
