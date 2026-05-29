@@ -136,6 +136,49 @@ img { max-width: 100%; }
 .section-heading { padding: 18px 0 8px; }
 .section-heading h2 { font-size: clamp(1.9rem, 4vw, 2.4rem); margin: 6px 0 10px; }
 
+.narrative-intro,
+.story-split {
+  padding: 24px;
+  margin: 18px 0;
+}
+.narrative-intro h2,
+.story-split h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.08;
+  margin: 8px 0 10px;
+}
+.narrative-intro p,
+.story-split p {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 760px;
+}
+.story-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.photo-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 18px 0;
+}
+.photo-card { overflow: hidden; padding: 10px; }
+.photo-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+.photo-caption { padding: 10px 4px 4px; }
+.photo-caption h3 { margin: 0 0 6px; font-size: 1.02rem; color: var(--text); }
+.photo-caption p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+
 .services-grid, .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .service-card, .process-step, .why-item { padding: 18px; border-radius: 24px; }
 .service-card:hover, .process-step:hover, .why-item:hover { transform: translateY(-2px); }
@@ -157,8 +200,8 @@ img { max-width: 100%; }
 }
 
 @media (max-width: 1080px) {
-  .hero, .about-grid, .cta-strip { grid-template-columns: 1fr; }
-  .services-grid, .process-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+  .hero, .about-grid, .cta-strip, .story-split { grid-template-columns: 1fr; }
+  .photo-showcase, .services-grid, .process-grid, .why-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 780px) {
@@ -166,5 +209,5 @@ img { max-width: 100%; }
   .navbar { flex-wrap: wrap; }
   .nav-links { width: 100%; justify-content: space-between; flex-wrap: wrap; }
   .hero { padding: 18px; }
-  .services-grid, .process-grid, .why-grid { grid-template-columns: 1fr; }
+  .photo-showcase, .services-grid, .process-grid, .why-grid { grid-template-columns: 1fr; }
 }
