@@ -3,311 +3,324 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clays Fresh Start Cleaning Company LLC</title>
+    <title>Clays Fresh Start Cleaning</title>
     <meta
       name="description"
-      content="A lighter, cleaner approach to residential and commercial cleaning with polished service and dependable care."
+      content="Thoughtful residential and commercial cleaning with a calm, modern approach."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="site-shell">
-      <header class="navbar elegant-nav">
-        <a class="brand" href="#top">
-          <span class="brand-mark">CF</span>
-          <span>
-            <strong>Clays Fresh Start</strong>
-            <small>Cleaning Company LLC</small>
-          </span>
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#top" class="nav-brand">
+          <span class="nav-icon">CF</span>
+          <span class="nav-name">Clays Fresh Start</span>
         </a>
-        <nav class="nav-links compact-nav">
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#about">Why Us</a>
-          <a class="pill-link" href="#contact">Book a clean</a>
-        </nav>
-      </header>
+        <div class="nav-menu">
+          <a href="#work" class="nav-link">Our Work</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#process" class="nav-link">Process</a>
+          <a href="#contact" class="nav-link nav-highlight">Book a Clean</a>
+        </div>
+      </div>
+    </nav>
 
-      <main id="top">
-        <section class="hero panel">
-          <div class="hero-copy">
-            <p class="eyebrow">Light, polished, premium service</p>
-            <h1>Clean homes. Clear minds. A brighter way to live.</h1>
-            <p class="lede">
-              Thoughtful residential and commercial cleaning with a calm, modern feel. We keep every visit simple, reliable, and beautifully finished.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Request a quote</a>
-              <a class="btn btn-secondary" href="#services">See services</a>
-            </div>
-            <ul class="trust-list">
-              <li>Licensed & insured</li>
-              <li>Eco-conscious products</li>
-              <li>Flexible appointments</li>
-            </ul>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-bg">
+          <img src="reference-images/After-6.jpg" alt="" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Clean homes.<br />Clear minds.</h1>
+          <p class="hero-subtitle">A brighter way to live. Thoughtful cleaning with a calm, modern touch.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Book a Clean</a>
+            <a href="#work" class="btn btn-outline">See Our Work</a>
           </div>
-          <aside class="hero-card glass-card" aria-label="Service highlights">
-            <div class="mini-stat">
-              <strong>98%</strong>
-              <span>repeat client satisfaction</span>
-            </div>
-            <div class="mini-stat">
-              <strong>24 hrs</strong>
-              <span>average response time</span>
-            </div>
-            <div class="mini-stat accent">
-              <strong>12+</strong>
-              <span>years of trusted cleaning experience</span>
-            </div>
-            <article class="feature-note">
-              <p>Every clean is customized to your home, office, and routine.</p>
-            </article>
-          </aside>
-        </section>
+        </div>
+        <div class="hero-scroll">
+          <div class="scroll-mouse">
+            <div class="scroll-dot"></div>
+          </div>
+        </div>
+      </section>
 
-        <section class="photo-showcase" aria-label="Cleaning inspiration gallery">
-          <article class="photo-card panel">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Bright clean living room with natural light" />
-            <div class="photo-caption">
-              <h3>Fresh, bright interiors</h3>
-              <p>Clean lines, open spaces, and a calm finish that feels welcoming the moment you walk in.</p>
-            </div>
-          </article>
-          <article class="photo-card panel">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80" alt="Modern kitchen with polished surfaces" />
-            <div class="photo-caption">
-              <h3>Polished kitchen care</h3>
-              <p>From countertops to cabinets, every detail is handled with care and precision.</p>
-            </div>
-          </article>
-          <article class="photo-card panel">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Elegant workspace with tidy desk and clean office atmosphere" />
-            <div class="photo-caption">
-              <h3>Professional office refresh</h3>
-              <p>Clean, organized spaces that support productivity and leave a polished impression.</p>
-            </div>
-          </article>
-        </section>
+      <section class="section stats-section" id="stats">
+        <div class="stats-row">
+          <div class="stat" data-target="12">
+            <span class="stat-number" data-count="12">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat" data-target="500">
+            <span class="stat-number" data-count="500">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Homes Cleaned</span>
+          </div>
+          <div class="stat" data-target="98">
+            <span class="stat-number" data-count="98">0</span>
+            <span class="stat-suffix">%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+        </div>
+      </section>
 
-        <section class="narrative-intro panel">
-          <p class="eyebrow">A calmer standard</p>
-          <h2>We believe a clean space should feel effortless, not overwhelming.</h2>
-          <p>Our work is designed to bring order back to busy homes and professional spaces without adding noise, stress, or unnecessary complexity. It is the kind of detail you notice in the quiet—fresh linens, polished counters, a room that feels lighter the second you enter it.</p>
-          <p>That is the standard we bring to every visit: thoughtful, consistent, and finished with care.</p>
-        </section>
+      <section class="section section-alt" id="work">
+        <div class="section-header">
+          <span class="eyebrow">Real transformations</span>
+          <h2 class="section-title">See the difference a professional clean makes.</h2>
+          <p class="section-desc">Drag the slider to compare before and after — see the transformation for yourself.</p>
+        </div>
 
-        <section id="services" class="section-heading">
-          <p class="eyebrow">What we do</p>
-          <h2>Simple services, refined results.</h2>
-          <p class="section-copy">Whether you need weekly upkeep, a deep reset, or polished commercial care, every visit is tailored to feel effortless.</p>
-        </section>
+        <div class="comparison" id="comparison">
+          <div class="comparison-container" id="comparisonContainer">
+            <img src="reference-images/Before-0.jpg" alt="Before cleaning" class="comparison-before" />
+            <div class="comparison-after-wrap" id="afterWrap">
+              <img src="reference-images/After-0.jpg" alt="After cleaning" class="comparison-after" />
+            </div>
+            <div class="comparison-handle" id="comparisonHandle">
+              <div class="handle-track"></div>
+              <div class="handle-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 15l-6-6-6 6"/>
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-labels">
+            <span class="label label-before">Before</span>
+            <span class="label label-after">After</span>
+          </div>
+        </div>
+      </section>
 
-        <section class="services-grid">
-          <article class="service-card panel">
-            <h3>Residential Care</h3>
-            <p>Deep cleans, weekly upkeep, and seasonal resets for homes that deserve a calm, spotless environment.</p>
-            <ul>
-              <li>Kitchen & bath detail</li>
+      <section class="section">
+        <div class="gallery-grid">
+          <figure class="gallery-pair">
+            <div class="gallery-images">
+              <img src="reference-images/Before-1.jpg" alt="Before" />
+              <img src="reference-images/After-1.jpeg" alt="After" />
+            </div>
+            <figcaption>
+              <span>Before</span>
+              <span>After</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-pair">
+            <div class="gallery-images">
+              <img src="reference-images/Before-2.JPG" alt="Before" />
+              <img src="reference-images/After-2.JPG" alt="After" />
+            </div>
+            <figcaption>
+              <span>Before</span>
+              <span>After</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-pair">
+            <div class="gallery-images">
+              <img src="reference-images/Before-3.JPG" alt="Before" />
+              <img src="reference-images/After-3.JPG" alt="After" />
+            </div>
+            <figcaption>
+              <span>Before</span>
+              <span>After</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-pair">
+            <div class="gallery-images">
+              <img src="reference-images/Before-4.jpeg" alt="Before" />
+              <img src="reference-images/After-4.JPG" alt="After" />
+            </div>
+            <figcaption>
+              <span>Before</span>
+              <span>After</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-pair">
+            <div class="gallery-images">
+              <img src="reference-images/Before-5.JPG" alt="Before" />
+              <img src="reference-images/After-5.JPG" alt="After" />
+            </div>
+            <figcaption>
+              <span>Before</span>
+              <span>After</span>
+            </figcaption>
+          </figure>
+          <figure class="gallery-pair">
+            <div class="gallery-images">
+              <img src="reference-images/Before-6.jpg" alt="Before" />
+              <img src="reference-images/After-6.jpg" alt="After" />
+            </div>
+            <figcaption>
+              <span>Before</span>
+              <span>After</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="services">
+        <div class="section-header">
+          <span class="eyebrow">What we do</span>
+          <h2 class="section-title">Simple services, refined results.</h2>
+          <p class="section-desc">Whether you need weekly upkeep, a deep reset, or polished commercial care, every visit is tailored to feel effortless.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Residential Care</h3>
+            <p class="card-text">Deep cleans, weekly upkeep, and seasonal resets for homes that deserve a calm, spotless environment.</p>
+            <ul class="card-list">
+              <li>Kitchen &amp; bath detail</li>
               <li>Dusting, floors, and surfaces</li>
               <li>Pet-friendly options</li>
             </ul>
           </article>
-          <article class="service-card panel">
-            <h3>Commercial Clean</h3>
-            <p>Professional office, studio, and retail cleaning that keeps your space welcoming and work-ready.</p>
-            <ul>
+          <article class="card">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Commercial Clean</h3>
+            <p class="card-text">Professional office, studio, and retail cleaning that keeps your space welcoming and work-ready.</p>
+            <ul class="card-list">
               <li>Reception and common areas</li>
               <li>Restroom sanitation</li>
               <li>After-hours service</li>
             </ul>
           </article>
-          <article class="service-card panel">
-            <h3>Move-In / Move-Out</h3>
-            <p>Detailed resets for real estate transitions, renovations, and property turnovers.</p>
-            <ul>
-              <li>Cabinet, baseboard, and appliance detail</li>
+          <article class="card">
+            <div class="card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Move-In / Move-Out</h3>
+            <p class="card-text">Detailed resets for real estate transitions, renovations, and property turnovers.</p>
+            <ul class="card-list">
+              <li>Cabinet, baseboard, appliance detail</li>
               <li>Floor care and finishing touch</li>
               <li>Fast turnaround coordination</li>
             </ul>
           </article>
-        </section>
+        </div>
+      </section>
 
-        <section class="story-split panel">
-          <article>
-            <p class="eyebrow">Why it matters</p>
-            <h2>Clean spaces support the way you live and work.</h2>
-            <p>When your home feels organized and your office feels cared for, everything else seems to settle into place. That is why our approach is focused on consistency, discretion, and visible quality from the first glance to the final detail.</p>
-          </article>
-          <article>
-            <p>We are not here to overcomplicate the experience. We are here to make the routine feel easy, polished, and dependable—so your space always reflects the calm you deserve.</p>
-          </article>
-        </section>
-
-        <section id="about" class="about-grid">
-          <article class="panel about-card">
-            <p class="eyebrow">Why clients choose us</p>
-            <h2>Clean, calm, and carefully done.</h2>
-            <p>We bring a premium level of care to every space with clear communication, dependable visits, and a finish that feels fresh from the moment you walk in.</p>
-          </article>
-          <article class="why-grid">
-            <div class="why-item panel">
-              <span class="why-number">01</span>
-              <h3>Reliable</h3>
-              <p>We show up on time, communicate clearly, and maintain a high standard every visit.</p>
-            </div>
-            <div class="why-item panel">
-              <span class="why-number">02</span>
-              <h3>Thoughtful</h3>
-              <p>We work with your schedule, your preferences, and the unique needs of your property.</p>
-            </div>
-            <div class="why-item panel">
-              <span class="why-number">03</span>
-              <h3>Polished</h3>
-              <p>From spotless surfaces to crisp finishing details, every clean reflects care and professionalism.</p>
-            </div>
-          </article>
-        </section>
-
-        <section id="process" class="section-heading">
-          <p class="eyebrow">How it works</p>
-          <h2>Easy to book. Easy to trust.</h2>
-        </section>
-
-        <section class="process-grid">
-          <article class="process-step panel">
-            <span>Step 1</span>
-            <h3>Book your visit</h3>
-            <p>Share your space, preferred date, and any special cleaning priorities.</p>
-          </article>
-          <article class="process-step panel">
-            <span>Step 2</span>
-            <h3>We customize the plan</h3>
-            <p>We match the service level to your home, office, or property needs.</p>
-          </article>
-          <article class="process-step panel">
-            <span>Step 3</span>
-            <h3>Enjoy the result</h3>
-            <p>Walk into a brighter, fresher space with the confidence of a professional finish.</p>
-          </article>
-        </section>
-
-        <section class="section-heading">
-          <p class="eyebrow">Real transformations</p>
-          <h2>See the difference a professional clean makes.</h2>
-          <p class="section-copy">Hover over any image to compare our before and after work across a variety of spaces and projects.</p>
-        </section>
-
-        <section class="before-after-gallery">
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-0.heic" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-0.heic" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-1.heic" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-1.jpeg" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-2.JPG" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-2.JPG" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-3.JPG" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-3.JPG" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-4.jpeg" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-4.JPG" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-5.JPG" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-5.JPG" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-          <article class="before-after-pair panel">
-            <div class="before-after-container">
-              <div class="image-wrapper">
-                <img src="reference-images/Before-6.heic" alt="Space before cleaning" class="before-img" />
-                <span class="label before-label">Before</span>
-              </div>
-              <div class="image-wrapper">
-                <img src="reference-images/After-6.heic" alt="Space after professional cleaning" class="after-img" />
-                <span class="label after-label">After</span>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section class="cta-strip panel" id="contact">
-          <div>
-            <p class="eyebrow">Ready to book</p>
-            <h2>Let’s create a cleaner, calmer space for your next visit.</h2>
-            <p>Call, text, or email for a tailored quote for your home, office, or property.</p>
+      <section class="section" id="process">
+        <div class="section-header">
+          <span class="eyebrow">How it works</span>
+          <h2 class="section-title">Easy to book. Easy to trust.</h2>
+        </div>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Book your visit</h3>
+            <p class="step-text">Share your space, preferred date, and any special cleaning priorities.</p>
           </div>
-          <div class="contact-card">
-            <a href="tel:5555550148">(555) 555-0148</a>
-            <a href="mailto:hello@claysfreshstart.com">hello@claysfreshstart.com</a>
-            <p>Serving residential and commercial spaces with dependable care.</p>
+          <div class="step-connector">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
           </div>
-        </section>
-      </main>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3 class="step-title">We customize the plan</h3>
+            <p class="step-text">We match the service level to your home, office, or property needs.</p>
+          </div>
+          <div class="step-connector">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Enjoy the result</h3>
+            <p class="step-text">Walk into a brighter, fresher space with the confidence of a professional finish.</p>
+          </div>
+        </div>
+      </section>
 
-      <footer class="footer">
-        <p>© 2026 Clays Fresh Start Cleaning Company LLC. Professional cleaning, done with care.</p>
-      </footer>
-    </div>
+      <section class="section section-alt" id="about">
+        <div class="section-header">
+          <span class="eyebrow">Why clients choose us</span>
+          <h2 class="section-title">Clean, calm, and carefully done.</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Reliable</h3>
+            <p>We show up on time, communicate clearly, and maintain a high standard every visit.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Thoughtful</h3>
+            <p>We work with your schedule, your preferences, and the unique needs of your property.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>Polished</h3>
+            <p>From spotless surfaces to crisp finishing details, every clean reflects care and professionalism.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta" id="contact">
+        <div class="cta-content">
+          <span class="eyebrow cta-eyebrow">Ready to book</span>
+          <h2 class="cta-title">Let's create a cleaner, calmer space for your next visit.</h2>
+          <p class="cta-text">Call, text, or email for a tailored quote for your home, office, or property.</p>
+          <div class="cta-links">
+            <a href="tel:5555550148" class="btn btn-primary btn-large">(555) 555-0148</a>
+            <a href="mailto:hello@claysfreshstart.com" class="btn btn-outline btn-large">hello@claysfreshstart.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-icon">CF</span>
+          <span>Clays Fresh Start Cleaning Company LLC</span>
+        </div>
+        <p class="footer-text">Professional cleaning, done with care. &copy; 2026</p>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
