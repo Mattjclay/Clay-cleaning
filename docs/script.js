@@ -13,13 +13,22 @@ smoothLinks.forEach((anchor) => {
 
 // Navbar treatment on scroll
 const navbar = document.querySelector('.navbar');
+const brand = document.querySelector('.brand');
+const compactNav = document.querySelector('.compact-nav');
 
 window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 90;
+  const scrolled = window.scrollY > 70;
   if (navbar) {
+    navbar.classList.toggle('collapsed', scrolled);
     navbar.style.boxShadow = scrolled ? '0 10px 24px rgba(23, 36, 32, 0.08)' : 'none';
   }
-});
+  if (brand) {
+    brand.classList.toggle('brand-collapsed', scrolled);
+  }
+  if (compactNav) {
+    compactNav.classList.toggle('nav-collapsed', scrolled);
+  }
+}, { passive: true });
 
 // Reveal cards and image blocks on scroll with a richer cinematic lift
 const revealObserver = new IntersectionObserver(
