@@ -232,9 +232,71 @@ img { max-width: 100%; }
   padding: 28px 0 8px; color: var(--muted); font-size: 0.95rem; text-align: center;
 }
 
+/* Before/After Gallery */
+.before-after-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.before-after-pair {
+  overflow: hidden;
+  padding: 12px;
+  border-radius: 30px;
+  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 240ms ease;
+}
+
+.before-after-pair:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 56px rgba(18, 44, 35, 0.18);
+}
+
+.before-after-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.before-after-pair:hover .image-wrapper img {
+  transform: scale(1.02);
+}
+
+.label {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(22, 83, 65, 0.92);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 @media (max-width: 1080px) {
   .hero, .about-grid, .cta-strip, .story-split { grid-template-columns: 1fr; }
-  .photo-showcase, .services-grid, .process-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+  .photo-showcase, .services-grid, .process-grid, .why-grid, .before-after-gallery { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 780px) {
@@ -242,5 +304,6 @@ img { max-width: 100%; }
   .navbar { flex-wrap: wrap; }
   .nav-links { width: 100%; justify-content: space-between; flex-wrap: wrap; }
   .hero { padding: 18px; }
-  .photo-showcase, .services-grid, .process-grid, .why-grid { grid-template-columns: 1fr; }
+  .photo-showcase, .services-grid, .process-grid, .why-grid, .before-after-gallery { grid-template-columns: 1fr; }
+  .before-after-container { grid-template-columns: 1fr; }
 }

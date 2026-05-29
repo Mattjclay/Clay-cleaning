@@ -44,7 +44,7 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
 );
 
-document.querySelectorAll('.service-card, .why-item, .process-step, .photo-card, .narrative-intro, .story-split').forEach((card) => {
+document.querySelectorAll('.service-card, .why-item, .process-step, .photo-card, .narrative-intro, .story-split, .before-after-pair').forEach((card) => {
   card.style.opacity = '0';
   card.style.transform = 'translateY(16px)';
   card.style.transition = 'opacity 520ms cubic-bezier(.2,.8,.2,1), transform 520ms cubic-bezier(.2,.8,.2,1)';
