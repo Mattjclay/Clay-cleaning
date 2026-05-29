@@ -138,8 +138,8 @@ img { max-width: 100%; }
 
 .narrative-intro,
 .story-split {
-  padding: 28px;
-  margin: 22px 0;
+  padding: 32px;
+  margin: 28px 0;
 }
 .narrative-intro h2,
 .story-split h2 {
@@ -157,40 +157,41 @@ img { max-width: 100%; }
 .story-split {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
+  gap: 24px;
   align-items: start;
 }
 
 .photo-showcase {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin: 22px 0;
+  gap: 24px;
+  margin: 28px 0;
 }
-.photo-card { overflow: hidden; padding: 12px; }
+.photo-card { overflow: hidden; padding: 12px; border-radius: 30px; }
 .photo-card img {
   width: 100%;
-  height: 240px;
+  height: 260px;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 22px;
   display: block;
+  box-shadow: 0 18px 35px rgba(18, 44, 35, 0.16);
 }
 .photo-caption { padding: 12px 6px 6px; }
 .photo-caption h3 { margin: 0 0 6px; font-size: 1.02rem; color: var(--text); }
 .photo-caption p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
 
-.services-grid, .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.service-card, .process-step, .why-item { padding: 22px; border-radius: 26px; }
+.services-grid, .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card, .process-step, .why-item { padding: 24px; border-radius: 28px; }
 .service-card:hover, .process-step:hover, .why-item:hover { transform: translateY(-2px); }
 .service-card h3, .process-step h3, .why-item h3 { margin-top: 0; margin-bottom: 8px; font-size: 1.08rem; color: var(--text); }
 .service-card ul { padding-left: 18px; color: var(--muted); line-height: 1.5; }
 
-.about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 22px; margin-top: 24px; }
-.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; margin-top: 28px; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .why-number { color: var(--accent-deep); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.18em; }
 
 .cta-strip {
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; padding: 28px; margin-top: 26px;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; padding: 32px; margin-top: 30px;
 }
 .contact-card { display: grid; gap: 8px; align-content: start; }
 .contact-card a { color: var(--text); text-decoration: none; font-weight: 700; }

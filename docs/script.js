@@ -21,7 +21,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Reveal cards on scroll
+// Reveal cards and image blocks on scroll with a richer cinematic lift
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
@@ -35,10 +35,10 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
 );
 
-document.querySelectorAll('.service-card, .why-item, .process-step').forEach((card) => {
+document.querySelectorAll('.service-card, .why-item, .process-step, .photo-card, .narrative-intro, .story-split').forEach((card) => {
   card.style.opacity = '0';
   card.style.transform = 'translateY(16px)';
-  card.style.transition = 'opacity 420ms ease, transform 420ms ease';
+  card.style.transition = 'opacity 520ms cubic-bezier(.2,.8,.2,1), transform 520ms cubic-bezier(.2,.8,.2,1)';
   revealObserver.observe(card);
 });
 
@@ -65,6 +65,19 @@ buttons.forEach((button) => {
 
 const rippleStyles = document.createElement('style');
 rippleStyles.textContent = `
+  .photo-card img {
+    transform: scale(1);
+    transition: transform 700ms cubic-bezier(.2,.8,.2,1), filter 700ms ease;
+  }
+  .photo-card:hover img {
+    transform: scale(1.03);
+    filter: saturate(1.08);
+  }
+
+  .panel, .glass-card, .photo-card, .service-card, .why-item, .process-step {
+    will-change: transform, opacity;
+  }
+
   .btn { position: relative; overflow: hidden; }
   .ripple {
     position: absolute;
@@ -80,4 +93,15 @@ rippleStyles.textContent = `
 `;
 document.head.appendChild(rippleStyles);
 
-console.log('Clays Fresh Start Cleaning - refreshed design loaded ✨');
+// Add a soft parallax feel to the image gallery as the user scrolls
+const galleryCards = document.querySelectorAll('.photo-card');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  galleryCards.forEach((card, index) => {
+    const depth = (index % 2 === 0 ? 1 : -1) * 8;
+    card.style.transform = `translateY(${Math.max(-8, Math.min(8, scrollY * 0.015 * depth))}px)`;
+  });
+}, { passive: true });
+
+console.log('Clays Fresh Start Cleaning - cinematic design loaded ✨');
