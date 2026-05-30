@@ -204,6 +204,33 @@
     }
   }
 
+  /* ── Gallery Pair Click → Comparison Slider ── */
+  document.querySelectorAll('.gallery-pair').forEach(function (pair) {
+    pair.addEventListener('click', function () {
+      var beforeImg = this.querySelector('.gallery-images img:first-child');
+      var afterImg = this.querySelector('.gallery-images img:last-child');
+      var comparisonBefore = document.querySelector('.comparison-before');
+      var comparisonAfter = document.querySelector('.comparison-after');
+
+      if (!beforeImg || !afterImg || !comparisonBefore || !comparisonAfter) return;
+
+      comparisonBefore.src = beforeImg.src;
+      comparisonAfter.src = afterImg.src;
+
+      if (afterWrap && handle) {
+        afterWrap.style.clipPath = 'inset(0 50% 0 0)';
+        handle.style.left = '50%';
+      }
+
+      document.querySelectorAll('.gallery-pair').forEach(function (p) {
+        p.classList.remove('gallery-active');
+      });
+      this.classList.add('gallery-active');
+
+      document.getElementById('comparison').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
   /* ── Parallax Hero ── */
   var heroBg = document.querySelector('.hero-bg');
   if (heroBg) {
