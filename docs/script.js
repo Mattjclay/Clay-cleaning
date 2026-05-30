@@ -35,46 +35,6 @@
     setTimeout(function () { hero.classList.add('hero-zoomed'); }, 300);
   }
 
-  /* ── Animated Counters ── */
-  var countersAnimated = false;
-  var statNumbers = document.querySelectorAll('.stat-number');
-
-  function animateCounters() {
-    if (countersAnimated) return;
-    countersAnimated = true;
-    statNumbers.forEach(function (el) {
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var current = 0;
-      var duration = 2000;
-      var startTime = null;
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        var progress = Math.min((timestamp - startTime) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        current = Math.floor(eased * target);
-        el.textContent = current;
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          el.textContent = target;
-        }
-      }
-      requestAnimationFrame(step);
-    });
-  }
-
-  /* ── Intersection Observer for Counters ── */
-  var statsSection = document.querySelector('.stats-section');
-  if (statsSection && statNumbers.length) {
-    var statsObserver = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        animateCounters();
-        statsObserver.unobserve(statsSection);
-      }
-    }, { threshold: 0.3 });
-    statsObserver.observe(statsSection);
-  }
-
   /* ── Scroll Reveal ── */
   var revealElements = document.querySelectorAll(
     '.section-header, .card, .why-card, .step, .gallery-pair, .comparison'
