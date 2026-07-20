@@ -584,6 +584,7 @@
       .comparison-container {
         position: relative;
         width: 100%;
+        max-height: 65vh;
         border-radius: var(--radius-lg);
         overflow: hidden;
         cursor: col-resize;
@@ -593,7 +594,9 @@
       .comparison-before {
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
+        min-height: 320px;
       }
 
       .comparison-after-wrap {
@@ -665,6 +668,96 @@
         width: 20px;
         height: 20px;
         flex-shrink: 0;
+      }
+
+      /* ── Comparison Nav Arrows ── */
+      .comparison-nav {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 300ms ease;
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .comparison-container:hover .comparison-nav,
+      .comparison-nav:focus-visible {
+        opacity: 1;
+      }
+
+      .comparison-nav-prev {
+        left: 0;
+        background: linear-gradient(90deg, oklch(0 0 0 / 0.30) 0%, transparent 100%);
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+      }
+
+      .comparison-nav-next {
+        right: 0;
+        background: linear-gradient(270deg, oklch(0 0 0 / 0.30) 0%, transparent 100%);
+        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      }
+
+      .comparison-nav-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: oklch(1 1 0 / 0.9);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px oklch(0 0 0 / 0.20);
+        transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+        pointer-events: none;
+      }
+
+      .comparison-nav:hover .comparison-nav-arrow {
+        transform: scale(1.1);
+      }
+
+      .comparison-nav:active .comparison-nav-arrow {
+        transform: scale(0.95);
+      }
+
+      .comparison-nav-arrow svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Show arrows on touch devices too (no hover) */
+      @media (hover: none) {
+        .comparison-nav {
+          opacity: 0.7;
+        }
+        .comparison-nav-prev {
+          background: linear-gradient(90deg, oklch(0 0 0 / 0.35) 0%, transparent 100%);
+        }
+        .comparison-nav-next {
+          background: linear-gradient(270deg, oklch(0 0 0 / 0.35) 0%, transparent 100%);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .comparison-nav {
+          width: 60px;
+        }
+        .comparison-nav-arrow {
+          width: 34px;
+          height: 34px;
+        }
+        .comparison-nav-arrow svg {
+          width: 16px;
+          height: 16px;
+        }
       }
 
       .comparison-labels {
@@ -1205,14 +1298,18 @@
 
       /* ── Responsive: Mobile ── */
       @media (max-width: 640px) {
-        :root {
-          --space-section: 56px;
-          --nav-height: 64px;
-        }
+    :root {
+      --space-section: 56px;
+      --nav-height: 64px;
+    }
 
-        .nav-logo {
-          max-height: 46px;
-        }
+    .nav-logo {
+      max-height: 46px;
+    }
+
+    .comparison-container {
+      max-height: 50vh;
+    }
 
         .nav-link {
           font-size: 0.78rem;
@@ -1384,28 +1481,42 @@
         </div>
 
         <div class="comparison" id="comparison">
-          <div class="comparison-container" id="comparisonContainer" role="img" aria-label="Before and after cleaning comparison. Drag the slider to compare.">
-            <img src="reference-images/Before-0.jpg" alt="" class="comparison-before" loading="lazy" />
-            <div class="comparison-after-wrap" id="afterWrap">
-              <img src="reference-images/After-0.jpg" alt="" class="comparison-after" loading="lazy" />
-            </div>
-            <div class="comparison-handle" id="comparisonHandle" role="slider" tabindex="0" aria-label="Comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-              <div class="handle-track"></div>
-              <div class="handle-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 15l-6-6-6 6"/>
-                </svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
+            <div class="comparison-container" id="comparisonContainer" role="group" aria-label="Before and after cleaning comparison. Use the arrow buttons or drag the slider to compare.">
+              <img src="reference-images/Before-0.jpg" alt="" class="comparison-before" id="comparisonBefore" loading="lazy" />
+              <div class="comparison-after-wrap" id="afterWrap">
+                <img src="reference-images/After-0.jpg" alt="" class="comparison-after" id="comparisonAfter" loading="lazy" />
+              </div>
+              <button class="comparison-nav comparison-nav-prev" id="comparisonPrev" aria-label="Previous before and after">
+                <span class="comparison-nav-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6"/>
+                  </svg>
+                </span>
+              </button>
+              <button class="comparison-nav comparison-nav-next" id="comparisonNext" aria-label="Next before and after">
+                <span class="comparison-nav-arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18l6-6-6-6"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="comparison-handle" id="comparisonHandle" role="slider" tabindex="0" aria-label="Comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <div class="handle-track"></div>
+                <div class="handle-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 15l-6-6-6 6"/>
+                  </svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
               </div>
             </div>
+            <div class="comparison-labels">
+              <span class="label label-before">Before</span>
+              <span class="label label-after">After</span>
+            </div>
           </div>
-          <div class="comparison-labels">
-            <span class="label label-before">Before</span>
-            <span class="label label-after">After</span>
-          </div>
-        </div>
       </section>
 
       <!-- ═══ Gallery ═══ -->
@@ -1418,17 +1529,17 @@
             </div>
             <figcaption>
               <span>Before</span>
-</span>              <span>After</span>
+                <span>After</span>
             </figcaption>
           </figure>
-          <figure class="gallery-pair" tabindex="0" role="button" aria-label="View this before and after pair in the comparison</span> slider">
+          <figure class="gallery-pair" tabindex="0" role="button" aria-label="View this before and after pair in the comparison slider">
             <div class="gallery-images">
               <img src="reference-images/Before-2.JPG" alt="Before cleaning" loading="lazy" />
               <img src="reference-images/After-2.JPG" alt="After cleaning" loading="lazy" />
             </div>
             <figcaption>
-              <span>Before</span</span>>
-              <span>After</span></span>
+              <span>Before</span>
+              <span>After</span>
             </figcaption>
           </figure>
           <figure class="gallery-pair" tabindex="0" role="button" aria-label="View this before and after pair in the comparison slider">
@@ -1437,8 +1548,8 @@
               <img src="reference-images/After-3.JPG" alt="After cleaning" loading="lazy" />
             </div>
             <figcaption>
-              <span>Before</span</span>>
-              <span>After</span></span>
+              <span>Before</span>
+              <span>After</span>
             </figcaption>
           </figure>
           <figure class="gallery-pair" tabindex="0" role="button" aria-label="View this before and after pair in the comparison slider">
@@ -1447,8 +1558,8 @@
               <img src="reference-images/After-4.JPG" alt="After cleaning" loading="lazy" />
             </div>
             <figcaption>
-              <span>Before</span</span>>
-              <span>After</span></span>
+              <span>Before</span>
+              <span>After</span>
             </figcaption>
           </figure>
           <figure class="gallery-pair" tabindex="0" role="button" aria-label="View this before and after pair in the comparison slider">
@@ -1457,9 +1568,9 @@
               <img src="reference-images/After-5.JPG" alt="After cleaning" loading="lazy" />
             </div>
             <figcaption>
-              <span>Before</span</span>>
+              <span>Before</span>
               <span>After</span>
-            </fig</span>caption>
+            </figcaption>
           </figure>
           <figure class="gallery-pair" tabindex="0" role="button" aria-label="View this before and after pair in the comparison slider">
             <div class="gallery-images">
@@ -1468,7 +1579,7 @@
             </div>
             <figcaption>
               <span>Before</span>
-             </span> <span>After</span</span>>
+              <span>After</span>
             </figcaption>
           </figure>
         </div>
@@ -1643,7 +1754,7 @@
               </svg>
             </div>
             <h3>Dependable</h3>
-            <p</h3>>We show up when we say we will and keep you informed along the way. No surprises, no shortcuts.</p>
+            <p>We show up when we say we will and keep you informed along the way. No surprises, no shortcuts.</p>
           </div>
           <div class="why-card">
             <div class="why-icon">
@@ -1651,8 +1762,8 @@
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
             </div>
-            <h3>Personal</h3></h3>
-            <p>Every space is different. We listen to what matters to you and tailor our work</p> to fit your home or business.</p>
+            <h3>Personal</h3>
+            <p>Every space is different. We listen to what matters to you and tailor our work to fit your home or business.</p>
           </div>
           <div class="why-card">
             <div class="why-icon">
@@ -1663,7 +1774,7 @@
               </svg>
             </div>
             <h3>Thorough</h3>
-</h3>            <p>We take our time with the details.</p> The baseboards, the corners, the spots that are easy to overlook.</p>
+            <p>We take our time with the details. The baseboards, the corners, the spots that are easy to overlook.</p>
           </div>
         </div>
       </section>
@@ -1947,29 +2058,29 @@
         }
       }
 
-      /* ── Gallery Pair Click → Comparison Slider ── */
+      /* ── Comparison Image Pairs Data ── */
+      var imagePairs = [];
       document.querySelectorAll('.gallery-pair').forEach(function (pair) {
-        pair.addEventListener('click', function () {
-          loadGalleryPair(this);
-        });
-        pair.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            loadGalleryPair(this);
-          }
-        });
-      });
-
-      function loadGalleryPair(pair) {
         var beforeImg = pair.querySelector('.gallery-images img:first-child');
         var afterImg = pair.querySelector('.gallery-images img:last-child');
-        var comparisonBefore = document.querySelector('.comparison-before');
-        var comparisonAfter = document.querySelector('.comparison-after');
+        if (beforeImg && afterImg) {
+          imagePairs.push({
+            before: beforeImg.src,
+            after: afterImg.src
+          });
+        }
+      });
 
-        if (!beforeImg || !afterImg || !comparisonBefore || !comparisonAfter) return;
+      var currentPairIndex = -1;
+      var comparisonBefore = document.getElementById('comparisonBefore');
+      var comparisonAfter = document.getElementById('comparisonAfter');
 
-        comparisonBefore.src = beforeImg.src;
-        comparisonAfter.src = afterImg.src;
+      function loadPairByIndex(index) {
+        if (index < 0 || index >= imagePairs.length) return;
+        currentPairIndex = index;
+        var pair = imagePairs[index];
+        comparisonBefore.src = pair.before;
+        comparisonAfter.src = pair.after;
 
         if (afterWrap && handle) {
           afterWrap.style.clipPath = 'inset(0 50% 0 0)';
@@ -1977,13 +2088,77 @@
           handle.setAttribute('aria-valuenow', '50');
         }
 
-        document.querySelectorAll('.gallery-pair').forEach(function (p) {
-          p.classList.remove('gallery-active');
+        /* Update active state in gallery grid */
+        document.querySelectorAll('.gallery-pair').forEach(function (p, i) {
+          p.classList.toggle('gallery-active', i === index);
         });
-        pair.classList.add('gallery-active');
-
-        document.getElementById('comparison').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+
+      /* Initialize: find which pair matches the initial comparison images */
+      (function initPairIndex() {
+        var initialBefore = comparisonBefore ? comparisonBefore.src : '';
+        for (var i = 0; i < imagePairs.length; i++) {
+          if (imagePairs[i].before === initialBefore) {
+            currentPairIndex = i;
+            break;
+          }
+        }
+        if (currentPairIndex === -1 && imagePairs.length > 0) {
+          /* Fall back to first pair */
+          currentPairIndex = 0;
+          loadPairByIndex(0);
+        }
+      })();
+
+      /* ── Gallery Pair Click → Comparison Slider ── */
+      document.querySelectorAll('.gallery-pair').forEach(function (pair, i) {
+        pair.addEventListener('click', function () {
+          loadPairByIndex(i);
+          document.getElementById('comparison').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        pair.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            loadPairByIndex(i);
+            document.getElementById('comparison').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      /* ── Comparison Nav Arrows ── */
+      var prevBtn = document.getElementById('comparisonPrev');
+      var nextBtn = document.getElementById('comparisonNext');
+
+      function goToPrev() {
+        if (imagePairs.length === 0) return;
+        var prev = (currentPairIndex - 1 + imagePairs.length) % imagePairs.length;
+        loadPairByIndex(prev);
+      }
+
+      function goToNext() {
+        if (imagePairs.length === 0) return;
+        var next = (currentPairIndex + 1) % imagePairs.length;
+        loadPairByIndex(next);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', goToPrev);
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', goToNext);
+      }
+
+      /* Keyboard shortcut: left/right arrows when comparison is in view */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          var rect = document.getElementById('comparison').getBoundingClientRect();
+          var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+          if (isVisible) {
+            if (e.key === 'ArrowLeft') goToPrev();
+            else goToNext();
+          }
+        }
+      });
 
       /* ── Parallax Hero ── */
       var heroBg = document.querySelector('.hero-bg');
