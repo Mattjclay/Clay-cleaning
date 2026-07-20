@@ -581,6 +581,10 @@
         user-select: none;
       }
 
+      .comparison-slider-wrap {
+        position: relative;
+      }
+
       .comparison-container {
         position: relative;
         width: 100%;
@@ -687,11 +691,13 @@
       }
 
       .comparison-nav-prev {
-        left: 12px;
+        right: 100%;
+        margin-right: 10px;
       }
 
       .comparison-nav-next {
-        right: 12px;
+        left: 100%;
+        margin-left: 10px;
       }
 
       .comparison-nav-arrow {
@@ -732,10 +738,10 @@
           height: 16px;
         }
         .comparison-nav-prev {
-          left: 8px;
+          margin-right: 6px;
         }
         .comparison-nav-next {
-          right: 8px;
+          margin-left: 6px;
         }
       }
 
@@ -1460,25 +1466,12 @@
         </div>
 
         <div class="comparison" id="comparison">
+          <div class="comparison-slider-wrap">
             <div class="comparison-container" id="comparisonContainer" role="group" aria-label="Before and after cleaning comparison. Use the arrow buttons or drag the slider to compare.">
               <img src="reference-images/Before-0.jpg" alt="" class="comparison-before" id="comparisonBefore" loading="lazy" />
               <div class="comparison-after-wrap" id="afterWrap">
                 <img src="reference-images/After-0.jpg" alt="" class="comparison-after" id="comparisonAfter" loading="lazy" />
               </div>
-              <button class="comparison-nav comparison-nav-prev" id="comparisonPrev" aria-label="Previous before and after">
-                <span class="comparison-nav-arrow">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M15 18l-6-6 6-6"/>
-                  </svg>
-                </span>
-              </button>
-              <button class="comparison-nav comparison-nav-next" id="comparisonNext" aria-label="Next before and after">
-                <span class="comparison-nav-arrow">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M9 18l6-6-6-6"/>
-                  </svg>
-                </span>
-              </button>
               <div class="comparison-handle" id="comparisonHandle" role="slider" tabindex="0" aria-label="Comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
                 <div class="handle-track"></div>
                 <div class="handle-btn">
@@ -1491,11 +1484,26 @@
                 </div>
               </div>
             </div>
-            <div class="comparison-labels">
-              <span class="label label-before">Before</span>
-              <span class="label label-after">After</span>
-            </div>
+            <button class="comparison-nav comparison-nav-prev" id="comparisonPrev" aria-label="Previous before and after">
+              <span class="comparison-nav-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </span>
+            </button>
+            <button class="comparison-nav comparison-nav-next" id="comparisonNext" aria-label="Next before and after">
+              <span class="comparison-nav-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </span>
+            </button>
           </div>
+          <div class="comparison-labels">
+            <span class="label label-before">Before</span>
+            <span class="label label-after">After</span>
+          </div>
+        </div>
       </section>
 
       <!-- ═══ Gallery ═══ -->
