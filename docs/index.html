@@ -673,15 +673,12 @@
       /* ── Comparison Nav Arrows ── */
       .comparison-nav {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 80px;
+        top: 50%;
+        transform: translateY(-50%);
         z-index: 9;
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
-        transition: opacity 300ms ease;
         cursor: pointer;
         border: none;
         background: none;
@@ -689,39 +686,31 @@
         -webkit-tap-highlight-color: transparent;
       }
 
-      .comparison-container:hover .comparison-nav,
-      .comparison-nav:focus-visible {
-        opacity: 1;
-      }
-
       .comparison-nav-prev {
-        left: 0;
-        background: linear-gradient(90deg, oklch(0 0 0 / 0.30) 0%, transparent 100%);
-        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        left: 12px;
       }
 
       .comparison-nav-next {
-        right: 0;
-        background: linear-gradient(270deg, oklch(0 0 0 / 0.30) 0%, transparent 100%);
-        border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        right: 12px;
       }
 
       .comparison-nav-arrow {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background: oklch(1 1 0 / 0.9);
-        color: var(--text);
+        background: oklch(1 1 0 / 0.85);
+        color: oklch(0.15 0.01 var(--hue));
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 2px 8px oklch(0 0 0 / 0.20);
-        transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+        box-shadow: 0 2px 8px oklch(0 0 0 / 0.25);
+        transition: transform 150ms ease, box-shadow 150ms ease;
         pointer-events: none;
       }
 
       .comparison-nav:hover .comparison-nav-arrow {
-        transform: scale(1.1);
+        transform: scale(1.08);
+        box-shadow: 0 3px 12px oklch(0 0 0 / 0.35);
       }
 
       .comparison-nav:active .comparison-nav-arrow {
@@ -733,23 +722,7 @@
         height: 20px;
       }
 
-      /* Show arrows on touch devices too (no hover) */
-      @media (hover: none) {
-        .comparison-nav {
-          opacity: 0.7;
-        }
-        .comparison-nav-prev {
-          background: linear-gradient(90deg, oklch(0 0 0 / 0.35) 0%, transparent 100%);
-        }
-        .comparison-nav-next {
-          background: linear-gradient(270deg, oklch(0 0 0 / 0.35) 0%, transparent 100%);
-        }
-      }
-
       @media (max-width: 640px) {
-        .comparison-nav {
-          width: 60px;
-        }
         .comparison-nav-arrow {
           width: 34px;
           height: 34px;
@@ -757,6 +730,12 @@
         .comparison-nav-arrow svg {
           width: 16px;
           height: 16px;
+        }
+        .comparison-nav-prev {
+          left: 8px;
+        }
+        .comparison-nav-next {
+          right: 8px;
         }
       }
 
